@@ -8,8 +8,8 @@ from fetch import fetchtime
 from flask import Flask, request
 
 app = Flask(__name__)
-
-send = fetchtime()
+tobesent = ""
+send = fetchtime(tobesent)
 
 
 @app.route('/', methods=['GET'])
