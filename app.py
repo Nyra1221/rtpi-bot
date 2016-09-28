@@ -9,6 +9,8 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
+send = fetchtime()
+
 
 @app.route('/', methods=['GET'])
 def verify():
@@ -41,7 +43,7 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    send_message(sender_id, fetchtime(["message"]["text"]))
+                    send_message(sender_id, send(["message"]["text"]))
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
