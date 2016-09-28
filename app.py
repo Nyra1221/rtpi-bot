@@ -4,12 +4,11 @@ import json
 
 import requests
 import bus
-from fetch import fetchtime
+import fetch
 from flask import Flask, request
 
 app = Flask(__name__)
-tobesent = ""
-send = fetchtime(tobesent)
+
 
 
 @app.route('/', methods=['GET'])
@@ -44,7 +43,7 @@ def webhook():
                     message_text = messaging_event["message"]["text"]  # the message's text
                     tobesent = messaging_event["message"]["text"]
 
-                    send_message(sender_id, send(tobesent))
+                    send_message(sender_id, fetch.fetchtime(tobesent))
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
