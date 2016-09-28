@@ -4,7 +4,7 @@ import json
 
 import requests
 import bus
-import fetch
+from fetch import fetchtime
 from flask import Flask, request
 
 app = Flask(__name__)
