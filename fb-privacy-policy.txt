@@ -1,0 +1,4 @@
+This app requests only basic profile info, the same as any other Facebook app.
+No personal information is viewed or stored, although for testing and 
+debugging purposes, some messages sent to the bot are logged (for detecting
+bad stops/errors).
