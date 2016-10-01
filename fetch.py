@@ -1,10 +1,10 @@
 import urllib2, urllib, json
 
 def fetchtime(stopnum):
+    n = []
     data = "?stopid={}".format(stopnum)+"&format=json"
     content = "https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation"
     req = urllib2.urlopen(content + data + "?")
-
     i = 0 
     info = json.load(req)
 
@@ -12,6 +12,7 @@ def fetchtime(stopnum):
         return "Sorry, there's no real time info for this stop!"
 
     while i < len(info["results"]):
-        return "Route Number:" + " " + info['results'][i]['route']
-        return "Due in" + " " + info["results"][i]["duetime"] + " " + "minutes." + "\n"
+        n.append("Route Number:" + " " + str(info['results'][i]['route']) + "\n" + "Due in" + " " + str(info["results"][i]["duetime"]) + " " + "minutes." + "\n")
+
         i = i + 1 
+    return '\n'.join(str(x) for x in n)
