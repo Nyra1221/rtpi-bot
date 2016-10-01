@@ -13,7 +13,7 @@ def fetchtime(stopnum):
 
     if len(info["results"]) > 9:
         while i < 9:
-            n.append("Route Number:" + " " + str(info['results'][i]['route']) + "\n" + "Due in" + " " + str(info["results"][i]["duetime"]) + " " + "minutes." + "\n")
+            n.append("Route:" + " " + str(info['results'][i]['route']) + "\n" + "Due:" + " " + str(info["results"][i]["duetime"]) + " " + "min." + "\n")
             i = i + 1 
 
     else:
