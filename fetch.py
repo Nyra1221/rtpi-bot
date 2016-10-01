@@ -11,8 +11,14 @@ def fetchtime(stopnum):
     if len(info["results"]) == 0:
         return "Sorry, there's no real time info for this stop!"
 
-    while i < len(info["results"]):
-        n.append("Route Number:" + " " + str(info['results'][i]['route']) + "\n" + "Due in" + " " + str(info["results"][i]["duetime"]) + " " + "minutes." + "\n")
+    if len(info["results"]) > 9:
+        while i < 9:
+            n.append("Route Number:" + " " + str(info['results'][i]['route']) + "\n" + "Due in" + " " + str(info["results"][i]["duetime"]) + " " + "minutes." + "\n")
+            i = i + 1 
 
-        i = i + 1 
+    else:
+        while i < len(info["results"]):
+            n.append("Route Number:" + " " + str(info['results'][i]['route']) + "\n" + "Due in" + " " + str(info["results"][i]["duetime"]) + " " + "minutes." + "\n")
+
+            i = i + 1 
     return '\n'.join(str(x) for x in n)
