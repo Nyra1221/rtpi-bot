@@ -36,7 +36,7 @@ def webhook():
             for messaging_event in entry["messaging"]:
 
                 if messaging_event.get("message"):
-                    if messaging_event["message"][3]["type"] == "image":
+                    if messaging_event["message"]["attachments"] == True:
                         send_message(sender_id, "no")
                     else:  # someone sent us a message
 
