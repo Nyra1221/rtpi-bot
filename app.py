@@ -38,7 +38,7 @@ def webhook():
                 if messaging_event.get("message"):
                     sender_id = messaging_event["sender"]["id"]
                     if "text" not in messaging_event["message"]:
-                        send_message(sender_id, "no")
+                        send_message(sender_id, "Sorry, I'm a robot! I don't know what to do with pictures!")
                         return "ok", 200
                     else:  # someone sent us a message
 
