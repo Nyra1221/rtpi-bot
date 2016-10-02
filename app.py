@@ -3,7 +3,6 @@ import sys
 import json
 
 import requests
-import bus
 import fetch
 from flask import Flask, request
 
@@ -84,6 +83,7 @@ def send_message(recipient_id, message_text):
 def log(message):  # simple wrapper for logging to stdout on heroku
     print str(message)
     sys.stdout.flush()
+
 
 
 if __name__ == '__main__':

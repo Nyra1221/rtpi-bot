@@ -1,6 +1,6 @@
 import urllib2, urllib, json, fetch
 try:
-	stopnum = int(input("Stop Number: "))
+	stopnum = raw_input("Stop Number: ")
 except: 
 	stopnum = 1
 print "\n"
