@@ -35,18 +35,17 @@ def webhook():
         for entry in data["entry"]:
             for messaging_event in entry["messaging"]:
 
-                if messaging_event.get("message"):  # someone sent us a message
-                    for thing in entry:
-                        if thing == "image":
+                if messaging_event.get("message"):
+                    if messaging_event["message"][0]["type"] == "image":
+                        send_message(sender_id, "no")
+                    else:  # someone sent us a message
 
-                            send_message(sender_id, "I don't know what that is!")
-
-                    sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
-                    recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
-                    message_text = messaging_event["message"]["text"]  # the message's text
-                    tobesent = messaging_event["message"]["text"]
+                        sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
+                        recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
+                        message_text = messaging_event["message"]["text"]  # the message's text
+                        tobesent = messaging_event["message"]["text"]
                     
-                    send_message(sender_id, fetch.fetchtime(tobesent))
+                        send_message(sender_id, fetch.fetchtime(tobesent))
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
