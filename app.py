@@ -36,7 +36,7 @@ def webhook():
             for messaging_event in entry["messaging"]:
 
                 if messaging_event.get("message"):  # someone sent us a message
-                    if messaging_event["type"] == "image":
+                    if messaging_event["message"]["type"] == "image":
                         send_message(sender_id, "I don't know what that is!")
 
                     sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
