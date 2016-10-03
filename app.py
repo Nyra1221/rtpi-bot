@@ -38,7 +38,7 @@ def webhook():
                 if messaging_event.get("message"):# someone sent us a message
                     sender_id = messaging_event["sender"]["id"]
                     if "text" not in messaging_event["message"]: # Scans the "Message" part of the json for a "text" parameter. If there is none, it is an attachment and is responded to as such.
-                        send_message(sender_id, "Sorry, I'm a robot! I don't know what to do with attachments!") # This fix almost drove me to insanity. I have seen demons.
+                        send_message(sender_id, "Sorry, I'm a robot! I can't see that!") # This fix almost drove me to insanity. I have seen demons.
                         return "ok", 200
                     else:  # someone sent us a message
 
