@@ -45,5 +45,5 @@ def chunks(info, n):
             'Route: {} to {}\nDue: {} minutes.\n'.format(
                 result['route'], result['destination'], result["duetime"])
                     for result in results[i:i+n]]
-        yield '\n'.join(chunk) # A work in progress function to send complete bus listings as separate messages, thereby bypassing the 320 char limit.
+        yield '\n'.join(chunk) # A work in progress function to send complete bus listings as separate messages thereby bypassing the 320 char limit.
 
