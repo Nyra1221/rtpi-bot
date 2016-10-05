@@ -10,7 +10,7 @@ def fetchtime(stopnum):
     if len(stopnum) > 6:
         return "This is not a valid stop number!"# Here we're ensuring that the bot only processes requests that are ints and 0-6 chars in length
         # This is to stop crashes from massive messages. I sent this thing the Bee Movie script before I put this in place. It didn't end well.
-    if stopnum,lower() == "Send me a song":
+    if stopnum.lower() == "Send me a song":
         print "https://www.youtube.com/watch?v=tsfnuyyjaB0"
 
     n = []
