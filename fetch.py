@@ -2,12 +2,13 @@ import urllib2, urllib, json, app
 from app import *
 
 def fetchtime(stopnum):
-    if stopnum.lower() == "send me a song":
-        print "https://www.youtube.com/watch?v=tsfnuyyjaB0"
     try:
         val = int(stopnum)
     except ValueError:
         return "Stop numbers must be numeric!" 
+
+    if stopnum == 654321:
+        return "https://www.youtube.com/watch?v=tsfnuyyjaB0"
 
     if len(stopnum) > 6:
         return "This is not a valid stop number!"# Here we're ensuring that the bot only processes requests that are ints and 0-6 chars in length
