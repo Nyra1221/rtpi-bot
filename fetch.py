@@ -7,7 +7,7 @@ def fetchtime(stopnum):
     except ValueError:
         return "Stop numbers must be numeric!" 
 
-    if stopnum == 654321:
+    if stopnum == "654321":
         return "https://www.youtube.com/watch?v=tsfnuyyjaB0"
 
     if len(stopnum) > 6:
