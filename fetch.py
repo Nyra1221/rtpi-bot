@@ -29,7 +29,7 @@ def fetchtime(stopnum):
             while i < 5:
                 n.append("Route: {} to {} \nDue: {} minutes\n".format(info["results"][i]["route"], info["results"][i]["destination"], info["results"][i]["duetime"]))
                 i = i + 1
-            return '\n'.join(str(x) for x in n) #Only displays 5 buses for busy stops to avoid tripping the 320 char limit
+            return '\n'.join(str(x) for x in n) #Only displays 5 buses for busy stops to avoid tripping the 320 char limit.
 
     else:
         while i < len(info["results"]):
