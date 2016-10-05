@@ -28,7 +28,7 @@ def webhook():
     # endpoint for processing incoming messaging events
 
     data = request.get_json()
-    log(data)  # you may not want to log every incoming message in production, but it's good for testing
+    log(data)  # message logging for debugging purposes 
 
     if data["object"] == "page":
 
@@ -40,10 +40,10 @@ def webhook():
                     if "text" not in messaging_event["message"]: # Scans the "Message" part of the json for a "text" parameter. If there is none, it is an attachment and is responded to as such.
                         send_message(sender_id, "Sorry, I'm a robot! I don't know what to do with attachments!") # This fix almost drove me to insanity. I have seen demons.
                         return "ok", 200
-                    else:  # someone sent us a message
+                    else: 
 
                         sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
-                        recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
+                        recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, (page's facebook ID)
                         message_text = messaging_event["message"]["text"]  # the message's text
                         tobesent = messaging_event["message"]["text"]
                     

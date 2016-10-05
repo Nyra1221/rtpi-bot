@@ -8,7 +8,7 @@ def fetchtime(stopnum):
         return "Stop numbers must be numeric!" 
 
     if stopnum == "654321":
-        return "https://www.youtube.com/watch?v=tsfnuyyjaB0"
+        return "https://www.youtube.com/watch?v=tsfnuyyjaB0" # Why am I like this
 
     if len(stopnum) > 6:
         return "This is not a valid stop number!"# Here we're ensuring that the bot only processes requests that are ints and 0-6 chars in length
@@ -45,5 +45,5 @@ def chunks(info, n):
             'Route: {} to {}\nDue: {} minutes.\n'.format(
                 result['route'], result['destination'], result["duetime"])
                     for result in results[i:i+n]]
-        yield '\n'.join(chunk)
+        yield '\n'.join(chunk) # A work in progress function to send complete bus listings as separate messages, thereby bypassing the 320 char limit.
 
