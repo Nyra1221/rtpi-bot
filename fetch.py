@@ -1,5 +1,4 @@
 import urllib2, urllib, json, app
-from app import *
 
 def fetchtime(stopnum):
     try:
@@ -33,8 +32,7 @@ def fetchtime(stopnum):
 
     else:
         while i < len(info["results"]):
-            n.append("Route:" + " " + str(info['results'][i]['route']) + " " + "to" + " " + str(info['results'][i]['destination']) + "\n" + "Due:" + " " + str(info["results"][i]["duetime"]) + " " + "minutes." + "\n")
-
+            n.append("Route: {} to {} \nDue: {} minutes\n".format(info["results"][i]["route"], info["results"][i]["destination"], info["results"][i]["duetime"]))
             i = i + 1 
     return '\n'.join(str(x) for x in n) #For everything else.
 
