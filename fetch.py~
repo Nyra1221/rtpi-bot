@@ -1,4 +1,4 @@
-import urllib2, urllib, json, app, ssl
+import urllib2, urllib, json, app
 
 def fetchtime(stopnum):
     try:
@@ -13,15 +13,10 @@ def fetchtime(stopnum):
         return "This is not a valid stop number!"# Here we're ensuring that the bot only processes requests that are ints and 0-6 chars in length
         # This is to stop crashes from massive messages. I sent this thing the Bee Movie script before I put this in place. It didn't end well.
 
-
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE # An evil workaround thanks to Dublin Bus fishing their certs. Please never do this if you can help it
-    
     n = []
     data = "?stopid={}".format(stopnum)+"&format=json" #Taking stop number and subbing it into the request URL
     content = "https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation"
-    req = urllib2.urlopen(content + data + "?", context = ctx)
+    req = urllib2.urlopen(content + data + "?")
     i = 0 
     info = json.load(req)
 
